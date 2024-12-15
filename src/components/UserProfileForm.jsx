@@ -8,7 +8,7 @@ function UserProfileForm() {
   const [youtube, setYoutube] = useState('');
   const [github, setGithub] = useState('');
   const [message, setMessage] = useState('');
-  const navigate = useNavigate();  // Hook for navigation
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUserProfile = async () => {
@@ -39,7 +39,7 @@ function UserProfileForm() {
         github,
       });
       setMessage('Profile updated successfully');
-      navigate('/profile');  // Navigate back to the profile page
+      navigate('/profile');
     } catch (error) {
       console.error('Error updating profile:', error);
       setMessage('Failed to update profile');

@@ -16,7 +16,7 @@ function SignIn({ onLogin }) {
       });
       const { token, id, username: loggedInUsername } = response.data;
       onLogin(token, loggedInUsername);
-      navigate('/');  // Redirect to the landing page
+      navigate('/');
     } catch (error) {
       console.error('Error signing in:', error);
       alert('Invalid credentials');

@@ -1,42 +1,126 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+a {
+  text-decoration: none;
+  color: #ffd700; 
+}
+
+a:hover {
+  color: #ff4500; 
+}
+
+button {
+  cursor: pointer;
+}
+
+
+.navbar {
+  background-color: #333;
+  color: #ffd700; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-center {
+  flex-grow: 1;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.navbar-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar-item {
+  margin-right: 15px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.navbar-item a,
+.navbar-item button,
+.navbar-left a,
+.navbar-right a {
+  color: #ffd700; 
+  padding: 10px 15px;
+  border-radius: 4px;
 }
+
+.navbar-item a:hover,
+.navbar-item button:hover,
+.navbar-left a:hover,
+.navbar-right a:hover {
+  background-color: #ff4500;
+}
+
+
+.main-content {
+  margin-top: 60px;
+  padding: 20px;
+}
+
+.footer {
+  background-color: #333; 
+  color: #ffd700;
+  text-align: center;
+  padding: 20px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+
+.primary-button {
+  background-color: #ff4500; 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+.primary-button:hover {
+  background-color: #e63900; 
+}
+
 
 .card {
-  padding: 2em;
+  background-color: #1c1c1c; 
+  border: 1px solid #ffd700;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-.read-the-docs {
-  color: #888;
+.card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.slick-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.slick-prev:before, .slick-next:before {
+  color: #ffd700; 
 }
