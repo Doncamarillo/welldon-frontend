@@ -7,6 +7,8 @@ import Dashboard from './components/Dashboard';
 import LandingPage from './components/LandingPage';
 import ProjectDetails from './components/ProjectDetails';
 import ProjectForm from './components/ProjectForm';
+import UserProfile from './components/UserProfile';
+import UserProfileForm from './components/UserProfileForm';
 import './App.css';
 
 function App() {
@@ -49,6 +51,8 @@ function App() {
             <Route path="/projects/:id" element={<ProjectDetails />} />
             <Route path="/add-project" element={<ProjectForm />} />
             <Route path="/edit-project/:id" element={<ProjectForm />} />
+            <Route path="/profile" element={<UserProfile />} />
+            <Route path="/edit-profile" element={<UserProfileForm />} />
           </Routes>
         </div>
       </div>
