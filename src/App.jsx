@@ -3,7 +3,10 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
+import Dashboard from './components/Dashboard';
 import LandingPage from './components/LandingPage';
+import ProjectDetails from './components/ProjectDetails';
+import ProjectForm from './components/ProjectForm';
 import './App.css';
 
 function App() {
@@ -42,6 +45,10 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/signup" element={<SignUp onLogin={handleLogin} />} />
             <Route path="/signin" element={<SignIn onLogin={handleLogin} />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/projects/:id" element={<ProjectDetails />} />
+            <Route path="/add-project" element={<ProjectForm />} />
+            <Route path="/edit-project/:id" element={<ProjectForm />} />
           </Routes>
         </div>
       </div>
