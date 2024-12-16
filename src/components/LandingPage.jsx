@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../assets/welldon logo with a computer aspect.png';
-
+import '../components/styling/landingPage.css'
 
 function LandingPage() {
   const [projects, setProjects] = useState([]);
-  const [users, setUsers] = useState([]);  
-  const isAuthenticated = localStorage.getItem('token');
+  const [users, setUsers] = useState([]); 
+  const isAuthenticated = localStorage.getItem('token'); 
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -55,7 +55,7 @@ function LandingPage() {
         <section className="trending-users">
           <h2>Trending Users</h2>
           <div className="users-grid">
-            {users.slice(0, 4).map((user) => (  
+            {users.slice(0, 4).map((user) => ( 
               <div key={user.id} className="user-card">
                 <Link to={`/profile/${user.id}`}>
                   {user.profile_picture && <img src={user.profile_picture} alt={`${user.username}'s profile`} className="user-profile-picture" />}
