@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -6,9 +5,10 @@ body {
   color: #e0e0e0; 
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: flex-start; 
   min-height: 100vh; 
   flex-direction: column; 
+  height: 100%; 
 }
 
 a {
@@ -24,7 +24,6 @@ button {
   cursor: pointer;
 }
 
-
 .navbar {
   background-color: #333; 
   color: #ffd700; 
@@ -34,6 +33,9 @@ button {
   padding: 10px 20px;
   width: 100%;
   z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .navbar-left,
@@ -77,16 +79,16 @@ button {
 
 
 .main-content {
-  margin-top: 80px;
+  margin-top: 80px; 
   padding: 20px;
   width: 100%;
   max-width: 1200px; 
   display: flex;
   flex-direction: column;
   align-items: center; 
+  justify-content: center; 
+  text-align: center; /
 }
-
-
 
 .primary-button {
   background-color: #ff4500;
@@ -108,6 +110,8 @@ button {
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
+  max-width: 100%;
+  width: 100%;
 }
 
 .card img {
@@ -116,3 +120,17 @@ button {
   border-radius: 4px;
 }
 
+@media (max-width: 768px) {
+  .main-content {
+    padding: 15px;
+    margin-top: 100px;
+  }
+  
+  .card {
+    padding: 15px;
+  }
+
+  .navbar {
+    padding: 10px 15px;
+  }
+}

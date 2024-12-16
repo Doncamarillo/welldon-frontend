@@ -107,6 +107,6 @@ function UserProfileForm() {
       {message && <p className="message">{message}</p>}
     </form>
   );
-}
+}  
 
 export default UserProfileForm;

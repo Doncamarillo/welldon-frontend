@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = `https://weldon-backend-45e0a2dcb575.herokuapp.com`;
+const API_URL = 'https://weldon-backend-45e0a2dcb575.herokuapp.com';
 
 export const signUp = async (username, email, password) => {
   try {
