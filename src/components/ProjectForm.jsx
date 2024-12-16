@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import '../components/styling/projectForm.css'
 
 function ProjectForm() {
   const { id } = useParams();
@@ -67,7 +68,7 @@ function ProjectForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="project-form" onSubmit={handleSubmit}>
       <h2>{id ? 'Edit Project' : 'Add New Project'}</h2>
       <input
         type="text"
@@ -96,7 +97,7 @@ function ProjectForm() {
         placeholder="Deployed URL"
         required
       />
-      <button type="submit">{id ? 'Update Project' : 'Add Project'}</button>
+      <button type="submit" className="submit-button">{id ? 'Update Project' : 'Add Project'}</button>
     </form>
   );
 }
