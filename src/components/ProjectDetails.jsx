@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './ProjectDetails.css';
 
 function ProjectDetails() {
   const { id } = useParams();
@@ -60,40 +61,43 @@ function ProjectDetails() {
   }
 
   return (
-    <div>
-      <h1>
-        <a href={project.deployed_url} target="_blank" rel="noopener noreferrer">
-          {project.title}
-        </a>
-      </h1>
-      <p>Created by <Link to={`/profile/${project.user_id}`}>{project.username}</Link></p>
-      <p>{project.description}</p>
-      {project.image_url && <img src={project.image_url} alt={project.title} />}
-      {userId === project.user_id.toString() && (
-        <>
-          <button onClick={() => navigate(`/edit-project/${id}`)}>Edit Project</button>
-          <button onClick={async () => {
-            await axios.delete(`http://localhost:5000/projects/${id}`);
-            navigate('/');
-          }}>Delete Project</button>
-        </>
-      )}
+    <div className="project-details">
+      <div className="project-header">
+        <h1 className="project-title">
+          <a href={project.deployed_url} target="_blank" rel="noopener noreferrer">
+            {project.title}
+          </a>
+        </h1>
+        <p className="project-creator">Created by <Link to={`/profile/${project.user_id}`}>{project.username}</Link></p>
+        <p className="project-description">{project.description}</p>
+        {project.image_url && <img src={project.image_url} alt={project.title} className="project-image" />}
+        {userId === project.user_id.toString() && (
+          <div className="project-actions">
+            <button className="edit-button" onClick={() => navigate(`/edit-project/${id}`)}>Edit Project</button>
+            <button className="delete-button" onClick={async () => {
+              await axios.delete(`http://localhost:5000/projects/${id}`);
+              navigate('/');
+            }}>Delete Project</button>
+          </div>
+        )}
+      </div>
       <div className="comments-section">
         <h2>Comments</h2>
-        <form onSubmit={handleAddComment}>
+        <form className="comment-form" onSubmit={handleAddComment}>
           <textarea
             value={commentText}
             onChange={(e) => setCommentText(e.target.value)}
             placeholder="Add a comment"
             required
+            className="comment-textarea"
           />
-          <button type="submit">Post Comment</button>
+          <button type="submit" className="comment-button">Post Comment</button>
         </form>
-        <ul>
+        <ul className="comments-list">
           {comments.map(comment => (
-            <li key={comment.id}>
-              <p>{comment.text}</p>
-              <small>By {comment.username} on {new Date(comment.timestamp).toLocaleString()}</small>
+            <li key={comment.id} className="comment-item">
+              <p className="comment-text">{comment.text}</p>
+              <small className="comment-meta">By {comment.username} on {new Date(comment.timestamp).toLocaleString()}</small>
             </li>
           ))}
         </ul>
