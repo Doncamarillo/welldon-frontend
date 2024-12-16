@@ -1,5 +1,5 @@
-.project-form {
-    max-width: 600px;
+.auth-form {
+    max-width: 400px;
     margin: 0 auto;
     padding: 20px;
     background-color: #f9f9f9;
@@ -7,15 +7,14 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  .project-form h2 {
+  .auth-form h2 {
     font-size: 1.5rem;
     margin-bottom: 20px;
     color: #333;
     text-align: center;
   }
   
-  .project-form input,
-  .project-form textarea {
+  .auth-form input {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -24,18 +23,12 @@
     font-size: 1rem;
   }
   
-  .project-form input:focus,
-  .project-form textarea:focus {
+  .auth-form input:focus {
     outline: none;
     border-color: #007bff;
   }
   
-  .project-form textarea {
-    height: 100px;
-    resize: vertical;
-  }
-  
-  .submit-button {
+  .auth-form button {
     background-color: #007bff;
     color: white;
     border: none;
@@ -46,7 +39,14 @@
     width: 100%;
   }
   
-  .submit-button:hover {
+  .auth-form button:hover {
     background-color: #0056b3;
+  }
+  
+  .auth-form p {
+    font-size: 1rem;
+    color: green;
+    text-align: center;
+    margin-top: 20px;
   }
   

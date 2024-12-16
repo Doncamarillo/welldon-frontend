@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import '../components/styling/authForm.css';
 
 function SignIn({ onLogin }) {
   const [username, setUsername] = useState('');
@@ -15,8 +16,11 @@ function SignIn({ onLogin }) {
         password
       });
       const { token, id, username: loggedInUsername } = response.data;
+      localStorage.setItem('token', token);
+      localStorage.setItem('user_id', id);
+      localStorage.setItem('username', loggedInUsername);
       onLogin(token, loggedInUsername);
-      navigate('/');
+      navigate('/'); 
     } catch (error) {
       console.error('Error signing in:', error);
       alert('Invalid credentials');
@@ -24,7 +28,7 @@ function SignIn({ onLogin }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="auth-form" onSubmit={handleSubmit}>
       <h2>Sign In</h2>
       <input
         type="text"
