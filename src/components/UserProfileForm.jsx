@@ -35,7 +35,7 @@ function UserProfileForm() {
     e.preventDefault();
     const userId = localStorage.getItem('user_id');
     try {
-      await axios.put(`https://weldon-backend-45e0a2dcb575.herokuapp.com/${userId}`, {
+      await axios.put(`https://weldon-backend-45e0a2dcb575.herokuapp.com/users/${userId}`, {
         twitter,
         linkedin,
         youtube,
