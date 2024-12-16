@@ -1,25 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import './UserProfileForm.css';  // Import the CSS file for styling
 
 function UserProfileForm() {
   const [twitter, setTwitter] = useState('');
   const [linkedin, setLinkedin] = useState('');
   const [youtube, setYoutube] = useState('');
   const [github, setGithub] = useState('');
+  const [profilePicture, setProfilePicture] = useState('');
   const [message, setMessage] = useState('');
-  const navigate = useNavigate();
+  const navigate = useNavigate();  // Hook for navigation
 
   useEffect(() => {
     const fetchUserProfile = async () => {
       const userId = localStorage.getItem('user_id');
       try {
         const response = await axios.get(`http://localhost:5000/users/${userId}`);
-        const { twitter, linkedin, youtube, github } = response.data;
+        const { twitter, linkedin, youtube, github, profile_picture } = response.data;
         setTwitter(twitter || '');
         setLinkedin(linkedin || '');
         setYoutube(youtube || '');
         setGithub(github || '');
+        setProfilePicture(profile_picture || '');
       } catch (error) {
         console.error('Error fetching user profile:', error);
       }
@@ -37,9 +40,10 @@ function UserProfileForm() {
         linkedin,
         youtube,
         github,
+        profile_picture: profilePicture,
       });
       setMessage('Profile updated successfully');
-      navigate('/profile');
+      navigate('/profile');  // Navigate back to the profile page
     } catch (error) {
       console.error('Error updating profile:', error);
       setMessage('Failed to update profile');
@@ -47,9 +51,19 @@ function UserProfileForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="user-profile-form" onSubmit={handleSubmit}>
       <h2>Update Profile</h2>
-      <div>
+      <div className="form-group">
+        <label htmlFor="profilePicture">Profile Picture URL</label>
+        <input
+          id="profilePicture"
+          type="text"
+          value={profilePicture}
+          onChange={(e) => setProfilePicture(e.target.value)}
+          placeholder="Profile Picture URL"
+        />
+      </div>
+      <div className="form-group">
         <label htmlFor="twitter">Twitter URL</label>
         <input
           id="twitter"
@@ -59,17 +73,17 @@ function UserProfileForm() {
           placeholder="Twitter URL"
         />
       </div>
-      <div>
+      <div className="form-group">
         <label htmlFor="linkedin">LinkedIn Username</label>
         <input
           id="linkedin"
           type="text"
           value={linkedin}
           onChange={(e) => setLinkedin(e.target.value)}
-          placeholder="LinkedIn URL"
+          placeholder="LinkedIn Username"
         />
       </div>
-      <div>
+      <div className="form-group">
         <label htmlFor="youtube">YouTube</label>
         <input
           id="youtube"
@@ -79,18 +93,18 @@ function UserProfileForm() {
           placeholder="YouTube URL"
         />
       </div>
-      <div>
-        <label htmlFor="github">GitHub username</label>
+      <div className="form-group">
+        <label htmlFor="github">GitHub Username</label>
         <input
           id="github"
           type="text"
           value={github}
           onChange={(e) => setGithub(e.target.value)}
-          placeholder="GitHub URL"
+          placeholder="GitHub Username"
         />
       </div>
-      <button type="submit">Update Profile</button>
-      {message && <p>{message}</p>}
+      <button type="submit" className="submit-button">Update Profile</button>
+      {message && <p className="message">{message}</p>}
     </form>
   );
 }
