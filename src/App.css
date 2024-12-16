@@ -1,20 +1,19 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #121212; 
-  color: #e0e0e0; 
+  background-color: #121212;
+  color: #e0e0e0;
   display: flex;
-  justify-content: flex-start; 
-  align-items: flex-start; 
-  min-height: 100vh; 
-  flex-direction: column; 
-  height: 100%; 
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: 100vh;
+  flex-direction: column;
   width: 100%;
 }
 
 a {
   text-decoration: none;
-  color: #ffd700; 
+  color: #ffd700;
 }
 
 a:hover {
@@ -23,20 +22,22 @@ a:hover {
 
 button {
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .navbar {
-  background-color: #333; 
-  color: #ffd700; 
+  background-color: #333;
+  color: #ffd700;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
   width: 100%;
-  z-index: 1;
+  z-index: 10;
   position: fixed;
   top: 0;
   left: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .navbar-left,
@@ -66,70 +67,15 @@ button {
 .navbar-item button,
 .navbar-left a,
 .navbar-right a {
-  color: #ffd700; 
+  color: #ffd700;
   padding: 10px 15px;
   border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
 
 .navbar-item a:hover,
 .navbar-item button:hover,
 .navbar-left a:hover,
 .navbar-right a:hover {
-  background-color: #ff4500; 
-}
-
-.main-content {
-  margin-top: 80px; 
-  padding: 20px;
-  width: 100%;
-  max-width: 1200px; 
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
-  justify-content: center;
-  text-align: center;
-}
-
-.primary-button {
   background-color: #ff4500;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-}
-
-.primary-button:hover {
-  background-color: #e63900; 
-}
-
-.card {
-  background-color: #1c1c1c; 
-  border: 1px solid #ffd700; 
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  max-width: 100%;
-  width: 100%;
-}
-
-.card img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 4px;
-}
-
-@media (max-width: 768px) {
-  .main-content {
-    padding: 15px;
-    margin-top: 100px;
-  }
-  
-  .card {
-    padding: 15px;
-  }
-
-  .navbar {
-    padding: 10px 15px;
-  }
 }
