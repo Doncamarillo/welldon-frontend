@@ -12,7 +12,7 @@ function LandingPage() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/projects');
+        const response = await axios.get(`https://welldon-backend.herokuapp.com/projects`);
         setProjects(response.data);
       } catch (error) {
         console.error('Error fetching projects:', error);
@@ -21,7 +21,7 @@ function LandingPage() {
 
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/users');
+        const response = await axios.get(`https://welldon-backend.herokuapp.com/users`);
         setUsers(response.data);
       } catch (error) {
         console.error('Error fetching users:', error);

@@ -16,7 +16,7 @@ function UserProfileForm() {
     const fetchUserProfile = async () => {
       const userId = localStorage.getItem('user_id');
       try {
-        const response = await axios.get(`http://localhost:5000/users/${userId}`);
+        const response = await axios.get(`https://weldon-backend-45e0a2dcb575.herokuapp.com/users/${userId}`);
         const { twitter, linkedin, youtube, github, profile_picture } = response.data;
         setTwitter(twitter || '');
         setLinkedin(linkedin || '');
@@ -35,7 +35,7 @@ function UserProfileForm() {
     e.preventDefault();
     const userId = localStorage.getItem('user_id');
     try {
-      await axios.put(`http://localhost:5000/users/${userId}`, {
+      await axios.put(`https://weldon-backend-45e0a2dcb575.herokuapp.com/${userId}`, {
         twitter,
         linkedin,
         youtube,

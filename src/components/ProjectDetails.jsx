@@ -15,7 +15,7 @@ function ProjectDetails() {
   useEffect(() => {
     const fetchProjectDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/projects/${id}`);
+        const response = await axios.get(`https://weldon-backend-45e0a2dcb575.herokuapp.com/projects/${id}`);
         setProject(response.data);
       } catch (error) {
         console.error('Error fetching project details:', error);
@@ -24,7 +24,7 @@ function ProjectDetails() {
 
     const fetchComments = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/projects/${id}/comments`);
+        const response = await axios.get(`https://weldon-backend-45e0a2dcb575.herokuapp.com/projects/${id}/comments`);
         setComments(response.data);
       } catch (error) {
         console.error('Error fetching comments:', error);
@@ -42,14 +42,14 @@ function ProjectDetails() {
   const handleAddComment = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`http://localhost:5000/projects/${id}/comments`, {
+      await axios.post(`https://weldon-backend-45e0a2dcb575.herokuapp.com/projects/${id}/comments`, {
         user_id: userId,
         text: commentText,
       }, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCommentText('');
-      const response = await axios.get(`http://localhost:5000/projects/${id}/comments`);
+      const response = await axios.get(`https://weldon-backend-45e0a2dcb575.herokuapp.com/projects/${id}/comments`);
       setComments(response.data);
     } catch (error) {
       console.error('Error adding comment:', error);
@@ -75,7 +75,7 @@ function ProjectDetails() {
           <div className="project-actions">
             <button className="edit-button" onClick={() => navigate(`/edit-project/${id}`)}>Edit Project</button>
             <button className="delete-button" onClick={async () => {
-              await axios.delete(`http://localhost:5000/projects/${id}`);
+              await axios.delete(`https://weldon-backend-45e0a2dcb575.herokuapp.com/projects/${id}`);
               navigate('/');
             }}>Delete Project</button>
           </div>

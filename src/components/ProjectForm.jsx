@@ -19,7 +19,7 @@ function ProjectForm() {
     if (id) {
       const fetchProjectDetails = async () => {
         try {
-          const response = await axios.get(`http://localhost:5000/projects/${id}`);
+          const response = await axios.get(`https://weldon-backend-45e0a2dcb575.herokuapp.com/projects/${id}`);
           const project = response.data;
           setTitle(project.title);
           setDescription(project.description);
@@ -38,7 +38,7 @@ function ProjectForm() {
     const token = localStorage.getItem('token');
     try {
       if (id) {
-        await axios.put(`http://localhost:5000/projects/${id}`, {
+        await axios.put(`https://weldon-backend-45e0a2dcb575.herokuapp.com/projects/${id}`, {
           title,
           description,
           image_url: imageUrl,
@@ -50,7 +50,7 @@ function ProjectForm() {
         alert('Project updated successfully');
         navigate(`/projects/${id}`);
       } else {
-        const response = await axios.post('http://localhost:5000/projects', {
+        const response = await axios.post(`https://weldon-backend-45e0a2dcb575.herokuapp.com/projects`, {
           title,
           description,
           image_url: imageUrl,
