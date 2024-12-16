@@ -11,7 +11,7 @@ function Navbar({ isAuthenticated, onLogout }) {
 
   const handleLogout = () => {
     onLogout();
-    setMenuOpen(false);  // Close the menu
+    setMenuOpen(false);
   };
 
   return (

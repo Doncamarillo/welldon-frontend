@@ -50,7 +50,8 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/projects/:id" element={<ProjectDetails />} />
             <Route path="/add-project" element={<ProjectForm />} />
-            <Route path="/edit-project/:id" element={<ProjectForm />} />
+            <Route path="/edit-project/:id" element={<ProjectForm />} /> 
+            <Route path="/profile/:id" element={<UserProfile />} />
             <Route path="/profile" element={<UserProfile />} />
             <Route path="/edit-profile" element={<UserProfileForm />} />
           </Routes>
