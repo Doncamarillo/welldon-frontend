@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../components/styling/userProfile.css'
-import settingsIcon from '../assets/settings-icon.png'; 
+import '../components/styling/userProfileForm.css';
+import settingsIcon from '../assets/settings-icon.png';
 
 function UserProfile() {
   const { id } = useParams();
-  const userId = id || localStorage.getItem('user_id'); 
+  const userId = id || localStorage.getItem('user_id');
   const [user, setUser] = useState(null);
   const [projects, setProjects] = useState([]);
   const navigate = useNavigate();

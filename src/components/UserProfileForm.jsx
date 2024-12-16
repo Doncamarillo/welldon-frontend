@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import '../components/styling/userProfile.css'
+import '../components/styling/userProfileForm.css'
 
 function UserProfileForm() {
   const [twitter, setTwitter] = useState('');
