@@ -14,7 +14,7 @@ function UserProfile() {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/users/${userId}`);
+        const response = await axios.get(`https://weldon-backend-45e0a2dcb575.herokuapp.com/users/${userId}`);
         setUser(response.data);
       } catch (error) {
         console.error('Error fetching user profile:', error);
@@ -23,7 +23,7 @@ function UserProfile() {
 
     const fetchUserProjects = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/users/${userId}/projects`);
+        const response = await axios.get('https://weldon-backend-45e0a2dcb575.herokuapp.com/users/${userId}/projects');
         setProjects(response.data);
       } catch (error) {
         console.error('Error fetching user projects:', error);

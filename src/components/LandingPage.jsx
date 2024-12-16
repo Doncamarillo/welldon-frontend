@@ -12,7 +12,7 @@ function LandingPage() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get(`https://weldon-backend-45e0a2dcb575.herokuapp.com/projects`);
+        const response = await axios.get('https://weldon-backend-45e0a2dcb575.herokuapp.com/projects');
         setProjects(response.data);
       } catch (error) {
         console.error('Error fetching projects:', error);
@@ -21,7 +21,7 @@ function LandingPage() {
 
     const fetchUsers = async () => {
       try {
-        const response = await axios.get(`https://weldon-backend-45e0a2dcb575.herokuapp.com/users`);
+        const response = await axios.get('https://weldon-backend-45e0a2dcb575.herokuapp.com/users');
         setUsers(response.data);
       } catch (error) {
         console.error('Error fetching users:', error);

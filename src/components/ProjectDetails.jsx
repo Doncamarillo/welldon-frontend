@@ -15,7 +15,7 @@ function ProjectDetails() {
   useEffect(() => {
     const fetchProjectDetails = async () => {
       try {
-        const response = await axios.get(`https://weldon-backend-45e0a2dcb575.herokuapp.com/projects/${id}`);
+        const response = await axios.get('https://weldon-backend-45e0a2dcb575.herokuapp.com/projects/${id}');
         setProject(response.data);
       } catch (error) {
         console.error('Error fetching project details:', error);
@@ -24,7 +24,7 @@ function ProjectDetails() {
 
     const fetchComments = async () => {
       try {
-        const response = await axios.get(`https://weldon-backend-45e0a2dcb575.herokuapp.com/projects/${id}/comments`);
+        const response = await axios.get('https://weldon-backend-45e0a2dcb575.herokuapp.com/projects/${id}/comments');
         setComments(response.data);
       } catch (error) {
         console.error('Error fetching comments:', error);
@@ -49,7 +49,7 @@ function ProjectDetails() {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCommentText('');
-      const response = await axios.get(`https://weldon-backend-45e0a2dcb575.herokuapp.com/projects/${id}/comments`);
+      const response = await axios.get('https://weldon-backend-45e0a2dcb575.herokuapp.com/projects/${id}/comments');
       setComments(response.data);
     } catch (error) {
       console.error('Error adding comment:', error);

@@ -11,7 +11,7 @@ function SignIn({ onLogin }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`https://weldon-backend-45e0a2dcb575.herokuapp.com/signin`, {
+      const response = await axios.post('https://weldon-backend-45e0a2dcb575.herokuapp.com/signin', {
         username,
         password
       });

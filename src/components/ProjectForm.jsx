@@ -50,7 +50,7 @@ function ProjectForm() {
         alert('Project updated successfully');
         navigate(`/projects/${id}`);
       } else {
-        const response = await axios.post(`https://weldon-backend-45e0a2dcb575.herokuapp.com/projects`, {
+        const response = await axios.post('https://weldon-backend-45e0a2dcb575.herokuapp.com/projects', {
           title,
           description,
           image_url: imageUrl,
