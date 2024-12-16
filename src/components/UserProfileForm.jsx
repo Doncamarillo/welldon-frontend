@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './UserProfileForm.css';  // Import the CSS file for styling
+import '../components/styling/userProfile.css'
 
 function UserProfileForm() {
   const [twitter, setTwitter] = useState('');
@@ -10,7 +10,7 @@ function UserProfileForm() {
   const [github, setGithub] = useState('');
   const [profilePicture, setProfilePicture] = useState('');
   const [message, setMessage] = useState('');
-  const navigate = useNavigate();  // Hook for navigation
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUserProfile = async () => {
@@ -43,7 +43,7 @@ function UserProfileForm() {
         profile_picture: profilePicture,
       });
       setMessage('Profile updated successfully');
-      navigate('/profile');  // Navigate back to the profile page
+      navigate('/profile'); 
     } catch (error) {
       console.error('Error updating profile:', error);
       setMessage('Failed to update profile');
