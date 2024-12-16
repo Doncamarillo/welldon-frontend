@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import '../components/styling/navbar.css'
 
 function Navbar({ isAuthenticated, onLogout }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const handleLogout = () => {
+    onLogout();
+    setMenuOpen(false);  // Close the menu
   };
 
   return (
@@ -19,7 +24,7 @@ function Navbar({ isAuthenticated, onLogout }) {
         </button>
       </div>
       <div className="navbar-center">
-        <h1>welldon</h1>
+        <Link to="/">Weldon</Link>
       </div>
       {menuOpen && (
         <div className="menu-overlay">
@@ -32,7 +37,7 @@ function Navbar({ isAuthenticated, onLogout }) {
             {isAuthenticated ? (
               <>
                 <Link to="/profile" onClick={handleMenuToggle}>Account</Link>
-                <button onClick={() => { onLogout(); handleMenuToggle(); }}>Logout</button>
+                <button onClick={handleLogout}>Logout</button>
               </>
             ) : (
               <>

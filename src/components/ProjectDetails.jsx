@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './ProjectDetails.css';
+import '../components/styling/projectDetails.css'
 
 function ProjectDetails() {
   const { id } = useParams();
