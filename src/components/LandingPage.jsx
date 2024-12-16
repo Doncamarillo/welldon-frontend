@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../assets/welldon logo with a computer aspect.png';
-import '../components/styling/landingPage.css'
+import '../components/landingPage.css'
 
 function LandingPage() {
   const [projects, setProjects] = useState([]);
