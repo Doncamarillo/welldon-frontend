@@ -44,7 +44,7 @@ function ProjectDetails() {
     try {
       await axios.post(`https://weldon-backend-45e0a2dcb575.herokuapp.com/projects/${id}/comments`, {
         user_id: userId,
-        text: commentText,
+        text: content,
       }, {
         headers: { Authorization: `Bearer ${token}` },
       });
