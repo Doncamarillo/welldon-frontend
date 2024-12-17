@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../assets/welldon logo with a computer aspect.png';
-import '../components/styling/landingPage.css'
+import '../components/styling/landingPage.css';
 
 function LandingPage() {
   const [projects, setProjects] = useState([]);
@@ -13,7 +13,8 @@ function LandingPage() {
     const fetchProjects = async () => {
       try {
         const response = await axios.get('https://weldon-backend-45e0a2dcb575.herokuapp.com/projects');
-        setProjects(response.data);
+        const shuffledProjects = response.data.sort(() => Math.random() - 0.5);
+        setProjects(shuffledProjects.slice(0, 4));
       } catch (error) {
         console.error('Error fetching projects:', error);
       }
@@ -22,7 +23,8 @@ function LandingPage() {
     const fetchUsers = async () => {
       try {
         const response = await axios.get('https://weldon-backend-45e0a2dcb575.herokuapp.com/users');
-        setUsers(response.data);
+        const shuffledUsers = response.data.sort(() => Math.random() - 0.5);
+        setUsers(shuffledUsers.slice(0, 4));
       } catch (error) {
         console.error('Error fetching users:', error);
       }
@@ -41,7 +43,7 @@ function LandingPage() {
         <section className="trending-projects">
           <h2>Trending Projects</h2>
           <div className="projects-grid">
-            {projects.slice(0, 5).map((project) => (
+            {projects.map((project) => (
               <div key={project.id} className="project-card">
                 <Link to={`/projects/${project.id}`}>
                   <h3>{project.title}</h3>
@@ -55,7 +57,7 @@ function LandingPage() {
         <section className="trending-users">
           <h2>Trending Users</h2>
           <div className="users-grid">
-            {users.slice(0, 4).map((user) => ( 
+            {users.map((user) => ( 
               <div key={user.id} className="user-card">
                 <Link to={`/profile/${user.id}`}>
                   {user.profile_picture && <img src={user.profile_picture} alt={`${user.username}'s profile`} className="user-profile-picture" />}

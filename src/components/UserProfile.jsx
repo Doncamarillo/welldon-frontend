@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../components/styling/userProfileForm.css';
+import '../components/styling/userProfile.css';
 import settingsIcon from '../assets/settings-icon.png';
 
 function UserProfile() {
