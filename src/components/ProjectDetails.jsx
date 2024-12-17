@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../components/styling/projectDetails.css'
+import '../components/styling/projectDetails.css';
 
 function ProjectDetails() {
   const { id } = useParams();
@@ -42,13 +42,19 @@ function ProjectDetails() {
   const handleAddComment = async (e) => {
     e.preventDefault();
     try {
+      // Fixing the payload to match the backend's expected field names
       await axios.post(`https://weldon-backend-45e0a2dcb575.herokuapp.com/projects/${id}/comments`, {
+        content: commentText,  // changed from `text` to `content` to match backend
         user_id: userId,
-        text: content,
+        project_id: id,  // Added project_id here
       }, {
         headers: { Authorization: `Bearer ${token}` },
       });
+
+      // Reset the comment input field
       setCommentText('');
+
+      // Fetch updated comments list
       const response = await axios.get(`https://weldon-backend-45e0a2dcb575.herokuapp.com/projects/${id}/comments`);
       setComments(response.data);
     } catch (error) {
@@ -81,6 +87,7 @@ function ProjectDetails() {
           </div>
         )}
       </div>
+
       <div className="comments-section">
         <h2>Comments</h2>
         <form className="comment-form" onSubmit={handleAddComment}>
@@ -93,11 +100,14 @@ function ProjectDetails() {
           />
           <button type="submit" className="comment-button">Post Comment</button>
         </form>
+
         <ul className="comments-list">
-          {comments.map(comment => (
+          {comments.map((comment) => (
             <li key={comment.id} className="comment-item">
-              <p className="comment-text">{comment.text}</p>
-              <small className="comment-meta">By {comment.username} on {new Date(comment.timestamp).toLocaleString()}</small>
+              <p className="comment-text">{comment.content}</p>
+              <small className="comment-meta">
+                By {comment.user.username} on {new Date(comment.timestamp).toLocaleString()}
+              </small>
             </li>
           ))}
         </ul>
