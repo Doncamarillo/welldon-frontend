@@ -26,28 +26,26 @@ function Navbar({ isAuthenticated, onLogout }) {
       <div className="navbar-center">
         <Link to="/">Weldon</Link>
       </div>
-      {menuOpen && (
-        <div className="menu-overlay">
-          <button className="close-button" onClick={handleMenuToggle}>×</button>
-          <div className="menu-content">
-            <Link to="/" onClick={handleMenuToggle}>Home</Link>
-            {isAuthenticated && (
-              <Link to="/add-project" onClick={handleMenuToggle}>Add Project</Link>
-            )}
-            {isAuthenticated ? (
-              <>
-                <Link to="/profile" onClick={handleMenuToggle}>Account</Link>
-                <button onClick={handleLogout}>Logout</button>
-              </>
-            ) : (
-              <>
-                <Link to="/signin" onClick={handleMenuToggle}>Sign In</Link>
-                <Link to="/signup" onClick={handleMenuToggle}>Sign Up</Link>
-              </>
-            )}
-          </div>
+      <div className={`menu-overlay ${menuOpen ? 'open' : ''}`}>
+        <button className="close-button" onClick={handleMenuToggle}>×</button>
+        <div className="menu-content">
+          <Link to="/" onClick={handleMenuToggle}>Home</Link>
+          {isAuthenticated && (
+            <Link to="/add-project" onClick={handleMenuToggle}>Add Project</Link>
+          )}
+          {isAuthenticated ? (
+            <>
+              <Link to="/profile" onClick={handleMenuToggle}>Account</Link>
+              <button onClick={handleLogout}>Logout</button>
+            </>
+          ) : (
+            <>
+              <Link to="/signin" onClick={handleMenuToggle}>Sign In</Link>
+              <Link to="/signup" onClick={handleMenuToggle}>Sign Up</Link>
+            </>
+          )}
         </div>
-      )}
+      </div>
     </nav>
   );
 }

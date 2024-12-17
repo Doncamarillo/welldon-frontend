@@ -1,27 +1,43 @@
+
 .navbar {
-  background-color: #333; 
-  color: #ffd700;  
+  background-color: #333;
+  color: #ffd700;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
   position: fixed;
   top: 0;
-  left: 0;  
+  left: 0;
   right: 0;
   width: 100%;
   z-index: 1;
 }
 
-.navbar-left,
+.navbar-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.navbar-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
 .navbar-right {
   display: flex;
   align-items: center;
 }
 
-.navbar-center {
-  flex-grow: 1;
-  text-align: center;
+.navbar-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
 }
 
 .navbar-item {
@@ -32,7 +48,7 @@
 .navbar-item button,
 .navbar-left a,
 .navbar-right a {
-  color: #ffd700; 
+  color: #ffd700;
   padding: 10px 15px;
   border-radius: 4px;
 }
@@ -44,10 +60,12 @@
   background-color: #ff4500;
 }
 
+
 .navbar-center a {
-  font-size: 1.8rem; 
-  font-family: 'Pacifico', cursive;  
+  font-size: 1.8rem;
+  font-family: 'Pacifico', cursive;
 }
+
 
 .hamburger {
   background: none;
@@ -65,9 +83,10 @@
 .hamburger-line {
   width: 100%;
   height: 3px;
-  background-color: #ffd700; 
+  background-color: #ffd700;
   border-radius: 2px;
 }
+
 
 .menu-overlay {
   position: fixed;
@@ -77,36 +96,40 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.9);
   display: flex;
-  justify-content: flex-start; 
-  align-items: flex-start;  
-  padding-top: 60px; 
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 60px;
   z-index: 2;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.menu-overlay.open {
+  transform: translateX(0);
 }
 
 .menu-content {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; 
-  text-align: left; 
-  width: 100%;
+  align-items: center;
+  text-align: center;
 }
 
 .menu-content a,
 .menu-content button {
-  color: #ffd700; 
+  color: #ffd700;
   padding: 10px 20px;
   margin: 10px 0;
   text-decoration: none;
-  border: 1px solid #ffd700; 
+  border: 1px solid #ffd700;
   background: none;
   cursor: pointer;
   font-size: 18px;
-  width: 100%;
 }
 
 .menu-content a:hover,
 .menu-content button:hover {
-  background-color: #ff4500; 
+  background-color: #ff4500;
   border-radius: 4px;
 }
 
@@ -114,7 +137,7 @@
   background: none;
   border: none;
   font-size: 30px;
-  color: #ffd700; 
+  color: #ffd700;
   cursor: pointer;
   position: absolute;
   top: 10px;
