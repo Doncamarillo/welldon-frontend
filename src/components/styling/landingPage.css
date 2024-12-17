@@ -4,15 +4,24 @@
 
 .landing-header {
   background-color: #333;
-  padding: 20px;
+  padding: 10px 20px;
 }
 
 .landing-logo {
   max-width: 200px;
+  border: 2px solid #ffd700;
+  border-radius: 8px;
+  display: inline-block;
+  margin: 0 auto;
+  margin-bottom: 35rem;
 }
 
 .landing-main {
   padding: 20px;
+  border: 2px solid #ffd700;
+  border-radius: 8px;
+  display: inline-block;
+  margin: 0 auto;
 }
 
 .trending-projects, .trending-users {
