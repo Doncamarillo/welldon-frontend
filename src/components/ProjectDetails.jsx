@@ -42,19 +42,14 @@ function ProjectDetails() {
   const handleAddComment = async (e) => {
     e.preventDefault();
     try {
-      // Fixing the payload to match the backend's expected field names
       await axios.post(`https://weldon-backend-45e0a2dcb575.herokuapp.com/projects/${id}/comments`, {
-        content: commentText,  // changed from `text` to `content` to match backend
+        content: commentText,  
         user_id: userId,
-        project_id: id,  // Added project_id here
+        project_id: id,  
       }, {
         headers: { Authorization: `Bearer ${token}` },
       });
-
-      // Reset the comment input field
       setCommentText('');
-
-      // Fetch updated comments list
       const response = await axios.get(`https://weldon-backend-45e0a2dcb575.herokuapp.com/projects/${id}/comments`);
       setComments(response.data);
     } catch (error) {
